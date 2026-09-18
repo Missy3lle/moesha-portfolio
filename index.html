@@ -15,6 +15,9 @@
 </head>
 <body>
 
+  <!-- Subtle cursor-reactive background glow (decorative, non-interactive) -->
+  <div class="cursor-glow" aria-hidden="true"></div>
+
   <!-- ===== Sticky Navigation ===== -->
   <header class="site-header">
     <nav class="nav" aria-label="Primary">
@@ -90,7 +93,7 @@
         <div class="projects">
 
           <!-- Project 1: AI Review Analyzer -->
-          <article class="project-card reveal">
+          <article class="project-card project-card--interactive reveal">
             <div class="project-card__header">
               <h3 class="project-card__title">AI Review Analyzer</h3>
               <span class="badge badge--live">Live · Phase 1 MVP</span>
@@ -108,6 +111,27 @@
               <li class="chip">Tailwind CSS</li>
               <li class="chip">Gemini API</li>
             </ul>
+
+            <button
+              type="button"
+              class="flow-toggle"
+              id="reviewFlowToggle"
+              aria-expanded="false"
+              aria-controls="reviewFlow"
+            >
+              See how it works
+              <span class="flow-toggle__icon" aria-hidden="true">↓</span>
+            </button>
+
+            <div class="flow" id="reviewFlow" aria-hidden="true">
+              <span class="flow__step">Customer Review</span>
+              <span class="flow__arrow" aria-hidden="true">→</span>
+              <span class="flow__step">AI Analysis</span>
+              <span class="flow__arrow" aria-hidden="true">→</span>
+              <span class="flow__step">Insights</span>
+              <span class="flow__arrow" aria-hidden="true">→</span>
+              <span class="flow__step">Suggested Response</span>
+            </div>
 
             <div class="project-card__links">
               <a href="https://github.com/Missy3lle/ai-review-analyzer" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
@@ -150,6 +174,47 @@
             </ul>
           </article>
 
+          <!-- Project 3: Nova Lux -->
+          <article class="project-card project-card--feature reveal">
+            <div class="project-card__media">
+              <img
+                src="nova-lux-pastry-studio.jpg.jpeg"
+                alt="Nova Lux pastry assistant on a laptop, surrounded by croissants, pastries, and a handwritten baking notebook"
+                width="1536"
+                height="1024"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+
+            <div class="project-card__body">
+              <div class="project-card__header">
+                <h3 class="project-card__title">Nova Lux</h3>
+                <span class="badge badge--live">Built · MVP</span>
+              </div>
+
+              <p class="project-card__desc">
+                A pastry-focused AI assistant built to help with recipe scaling, baking
+                calculations, measurement conversions, troubleshooting, and answers from
+                uploaded pastry documents.
+              </p>
+
+              <ul class="chip-list" aria-label="Technologies used">
+                <li class="chip">Python</li>
+                <li class="chip">Flask</li>
+                <li class="chip">OpenAI API</li>
+                <li class="chip">RAG</li>
+                <li class="chip">FAISS</li>
+              </ul>
+
+              <div class="project-card__links">
+                <a href="https://github.com/Missy3lle/Nova-Lux" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                  View on GitHub
+                </a>
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
@@ -189,6 +254,37 @@
               <li class="chip">AI / LLM Integration</li>
               <li class="chip">JSON / Structured Data</li>
             </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Mini terminal easter egg ===== -->
+    <section id="terminal" class="terminal-section" aria-label="Interactive terminal">
+      <div class="container">
+        <div class="terminal reveal">
+          <div class="terminal__bar">
+            <span class="terminal__dot" aria-hidden="true"></span>
+            <span class="terminal__dot" aria-hidden="true"></span>
+            <span class="terminal__dot" aria-hidden="true"></span>
+            <span class="terminal__title">moesha@portfolio</span>
+          </div>
+          <div class="terminal__body" id="terminalBody">
+            <p class="terminal__line">
+              Type <code>help</code> to see what this does.
+            </p>
+          </div>
+          <div class="terminal__input-row">
+            <label class="terminal__prompt" for="terminalInput">moesha@portfolio:~$</label>
+            <input
+              type="text"
+              id="terminalInput"
+              class="terminal__input"
+              autocomplete="off"
+              autocapitalize="off"
+              spellcheck="false"
+              aria-label="Terminal command input. Type help for a list of commands."
+            />
           </div>
         </div>
       </div>

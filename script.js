@@ -119,6 +119,124 @@ if (footerArrow && footerLinks.length === 2) {
 }
 
 // ---------------------------------------------------------
+// Cursor-reactive background glow. Only runs for devices with a
+// precise, hover-capable pointer (i.e. a real mouse) and only when
+// the user hasn't asked for reduced motion — touch devices and
+// reduced-motion users simply see the glow's static default position.
+// ---------------------------------------------------------
+const cursorGlow = document.querySelector(".cursor-glow");
+const hasFinePointer = window.matchMedia(
+  "(hover: hover) and (pointer: fine)"
+).matches;
+
+if (cursorGlow && hasFinePointer && !prefersReducedMotion) {
+  let targetX = window.innerWidth / 2;
+  let targetY = window.innerHeight * 0.22;
+  let rafPending = false;
+
+  const applyGlowPosition = () => {
+    cursorGlow.style.setProperty("--cursor-x", `${targetX}px`);
+    cursorGlow.style.setProperty("--cursor-y", `${targetY}px`);
+    rafPending = false;
+  };
+
+  window.addEventListener("mousemove", (event) => {
+    targetX = event.clientX;
+    targetY = event.clientY;
+    if (!rafPending) {
+      rafPending = true;
+      requestAnimationFrame(applyGlowPosition);
+    }
+  });
+}
+
+// ---------------------------------------------------------
+// AI Review Analyzer card: "See how it works" flow toggle.
+// CSS handles the hover reveal for mouse users; this click
+// handler makes it work on touch and keyboard too.
+// ---------------------------------------------------------
+const flowToggle = document.getElementById("reviewFlowToggle");
+const flowPanel = document.getElementById("reviewFlow");
+
+if (flowToggle && flowPanel) {
+  flowToggle.addEventListener("click", () => {
+    const isOpen = flowPanel.classList.toggle("is-open");
+    flowToggle.setAttribute("aria-expanded", String(isOpen));
+    flowPanel.setAttribute("aria-hidden", String(!isOpen));
+  });
+}
+
+// ---------------------------------------------------------
+// Mini terminal easter egg
+// ---------------------------------------------------------
+const terminalEl = document.querySelector(".terminal");
+const terminalBody = document.getElementById("terminalBody");
+const terminalInput = document.getElementById("terminalInput");
+
+const TERMINAL_RESPONSES = {
+  help: "Commands: about, projects, skills, whoami, tea, help, clear",
+  about:
+    "Moesha Eleuthere — started a pastry business before moving into tech. " +
+    "Now learning by building practical, AI-powered web applications and " +
+    "exploring AI/LLM integration and structured data.",
+  projects:
+    "AI Review Analyzer — Live · Phase 1 MVP (Next.js, TypeScript, Tailwind CSS, Gemini API). " +
+    "Barbados Menu & Market Intelligence — In Development.",
+  skills:
+    "Languages: Python, JavaScript, TypeScript, HTML, CSS. " +
+    "Frameworks & Tools: Next.js, Tailwind CSS, Git, GitHub, VS Code. " +
+    "AI & Data: Gemini API, AI/LLM Integration, JSON/Structured Data.",
+  whoami: [
+    "You found me 👀",
+    "I'm Moesha — pastry chef turned AI builder.",
+    "I bake cakes, build apps, and convince computers to cooperate.",
+    "Status: still figuring it out, but we're getting there. 💙",
+  ],
+  tea: ["Brewing... 🫖", "Tea first. Then we build. 💙"],
+};
+
+function appendTerminalLine(text, variant) {
+  const lines = Array.isArray(text) ? text : [text];
+  lines.forEach((lineText) => {
+    const line = document.createElement("p");
+    line.className = "terminal__line" + (variant ? ` terminal__line--${variant}` : "");
+    line.textContent = lineText;
+    terminalBody.appendChild(line);
+  });
+  terminalBody.scrollTop = terminalBody.scrollHeight;
+}
+
+if (terminalEl && terminalBody && terminalInput) {
+  terminalEl.addEventListener("click", (event) => {
+    if (event.target !== terminalInput) {
+      terminalInput.focus();
+    }
+  });
+
+  terminalInput.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+
+    const raw = terminalInput.value.trim();
+    terminalInput.value = "";
+    if (!raw) return;
+
+    const command = raw.toLowerCase();
+    appendTerminalLine(`moesha@portfolio:~$ ${raw}`, "cmd");
+
+    if (command === "clear") {
+      terminalBody.innerHTML = "";
+    } else if (TERMINAL_RESPONSES[command]) {
+      appendTerminalLine(TERMINAL_RESPONSES[command]);
+    } else {
+      appendTerminalLine(
+        `Command not found: ${raw}. Type "help" for a list of commands.`,
+        "error"
+      );
+    }
+  });
+}
+
+// ---------------------------------------------------------
 // Footer year
 // ---------------------------------------------------------
 document.getElementById("year").textContent = new Date().getFullYear();
