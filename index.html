@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Moesha Eleuthere — AI-Focused Developer</title>
+  <meta name="description" content="Portfolio of Moesha Eleuthere — AI-focused developer building tools that turn raw data into decisions." />
+
+  <!-- Fonts: Fraunces for headings, Inter for body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ===== Sticky Navigation ===== -->
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a href="#top" class="nav__brand">Moesha Eleuthere</a>
+
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu" aria-label="Toggle navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#about" class="nav__link" data-nav-link>About</a></li>
+        <li><a href="#projects" class="nav__link" data-nav-link>Projects</a></li>
+        <li><a href="#skills" class="nav__link" data-nav-link>Skills</a></li>
+        <li><a href="#contact" class="nav__link" data-nav-link>Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- ===== Hero ===== -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <p class="hero__eyebrow title-accent reveal">Portfolio</p>
+        <h1 class="hero__title reveal">Moesha Eleuthere</h1>
+        <p class="hero__tagline reveal">
+          AI-focused developer building tools that turn raw data into decisions.
+        </p>
+        <div class="hero__actions reveal">
+          <a href="#projects" class="btn btn--primary">View Projects</a>
+          <a href="#contact" class="btn btn--ghost">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== About ===== -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section__title title-accent reveal">About</h2>
+        <div class="about reveal">
+          <div class="about__photo">
+            <img src="profile.jpg" alt="Portrait of Moesha Eleuthere" width="480" height="600" />
+          </div>
+          <div class="about__content">
+            <p class="about__bio">
+              My path into tech didn't start with a computer science degree — it started in
+              the kitchen. Building a pastry business taught me how to take an idea from
+              concept to something people can actually use, while figuring things out along
+              the way.
+            </p>
+            <p class="about__bio">
+              That same mindset is what I bring to development today. I'm learning by
+              building practical web applications, exploring AI and APIs, and turning ideas
+              into working products — one project at a time.
+            </p>
+            <ul class="about__tags">
+              <li class="tag">AI / LLM Integration</li>
+              <li class="tag">Full-Stack Web Development</li>
+              <li class="tag">Structured Data & APIs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Projects ===== -->
+    <section id="projects" class="section section--alt">
+      <div class="container">
+        <h2 class="section__title title-accent reveal">Featured Projects</h2>
+
+        <div class="projects">
+
+          <!-- Project 1: AI Review Analyzer -->
+          <article class="project-card reveal">
+            <div class="project-card__header">
+              <h3 class="project-card__title">AI Review Analyzer</h3>
+              <span class="badge badge--live">Live · Phase 1 MVP</span>
+            </div>
+
+            <p class="project-card__desc">
+              A web app that uses the Gemini API to analyze customer reviews and help
+              surface key insights from written feedback. Built as a Phase 1 MVP, with
+              further capabilities planned for future phases.
+            </p>
+
+            <ul class="chip-list" aria-label="Technologies used">
+              <li class="chip">Next.js</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">Tailwind CSS</li>
+              <li class="chip">Gemini API</li>
+            </ul>
+
+            <div class="project-card__links">
+              <a href="https://github.com/Missy311e/ai-review-analyzer" class="btn btn--outline" target="_blank" rel="noopener noreferrer">
+                View on GitHub
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Barbados Menu & Market Intelligence -->
+          <article class="project-card reveal">
+            <div class="project-card__header">
+              <h3 class="project-card__title">Barbados Menu &amp; Market Intelligence</h3>
+              <span class="badge badge--dev">In Development</span>
+            </div>
+
+            <p class="project-card__desc">
+              A planned market-intelligence project focused on analyzing Barbados
+              restaurant menus and pricing trends to surface useful insights for local
+              businesses. Currently in early planning and development — the roadmap
+              below reflects planned work, not completed features.
+            </p>
+
+            <ul class="roadmap" aria-label="Planned capabilities">
+              <li class="roadmap__item">
+                <span class="roadmap__marker" aria-hidden="true"></span>
+                Data collection approach
+              </li>
+              <li class="roadmap__item">
+                <span class="roadmap__marker" aria-hidden="true"></span>
+                Menu &amp; pricing data structure
+              </li>
+              <li class="roadmap__item">
+                <span class="roadmap__marker" aria-hidden="true"></span>
+                Analysis &amp; insights layer
+              </li>
+              <li class="roadmap__item">
+                <span class="roadmap__marker" aria-hidden="true"></span>
+                Dashboard interface
+              </li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Skills ===== -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section__title title-accent reveal">Skills</h2>
+
+        <div class="skills reveal">
+          <div class="skills__group">
+            <h3 class="skills__group-title">Languages</h3>
+            <ul class="chip-list">
+              <li class="chip">Python</li>
+              <li class="chip">JavaScript</li>
+              <li class="chip">TypeScript</li>
+              <li class="chip">HTML</li>
+              <li class="chip">CSS</li>
+            </ul>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">Frameworks &amp; Tools</h3>
+            <ul class="chip-list">
+              <li class="chip">Next.js</li>
+              <li class="chip">Tailwind CSS</li>
+              <li class="chip">Git</li>
+              <li class="chip">GitHub</li>
+              <li class="chip">VS Code</li>
+            </ul>
+          </div>
+
+          <div class="skills__group">
+            <h3 class="skills__group-title">AI &amp; Data</h3>
+            <ul class="chip-list">
+              <li class="chip">Gemini API</li>
+              <li class="chip">AI / LLM Integration</li>
+              <li class="chip">JSON / Structured Data</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== Contact / Footer ===== -->
+  <footer id="contact" class="footer">
+    <div class="container footer__inner">
+      <p class="footer__line">Have a project in mind? Let's talk.</p>
+
+      <span class="footer__arrow-wrap" id="footerArrow" aria-hidden="true">
+        <span class="footer__arrow">↓</span>
+      </span>
+
+      <div class="footer__links">
+        <a href="https://github.com/Missy311e" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/moesha-eleuthere-a51895229" class="footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </div>
+
+      <p class="footer__copy">&copy; <span id="year"></span> Moesha Eleuthere. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== Back to top button ===== -->
+  <button id="backToTop" class="back-to-top" aria-label="Back to top" type="button">
+    ↑
+  </button>
+
+  <script src="script.js"></script>
+</body>
+</html>
